@@ -79,9 +79,14 @@ O modelo de serviço adotado foi o IaaS - Infrastructure as a Service, no qual p
 
 
 
-✨ ✨ ✨ ✨ ✨  Conclusão ✨ ✨ ✨ ✨ ✨ 
+                                                      ✨ ✨ ✨ ✨ ✨  Conclusão ✨ ✨ ✨ ✨ ✨ 
 
 Conclusão
 Este projeto mostra, de forma prática e objetiva, como criar e gerenciar uma aplicação simples em nuvem com automação de deploy.
 
 Com o uso de boas práticas e ferramentas modernas (como Terraform e GitHub Actions), foi possível implantar uma solução eficiente, reutilizável e com foco em agilidade.
+
+
+
+✅ Licença
+Este projeto está licenciado sob a MIT License – veja o arquivo LICENSE para detalhes.

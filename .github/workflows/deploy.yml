@@ -1,0 +1,31 @@
+name: Deploy na EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: Deploy App na EC2
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Criar arquivo .pem com chave da EC2
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_PRIVATE_KEY }}" > ~/.ssh/academia-key.pem
+          chmod 600 ~/.ssh/academia-key.pem
+
+      - name: Deploy via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/academia-key.pem ubuntu@54.88.219.21 << 'EOF'
+            sudo apt update -y
+            sudo apt install python3 git -y
+            rm -rf ~/app
+            git clone https://github.com/Luanacsilva/Academia-corpo-em-forma.git ~/app
+            python3 ~/app/app/main.py
+          EOF

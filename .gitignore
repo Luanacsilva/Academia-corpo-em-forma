@@ -1,0 +1,18 @@
+# Terraform
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfstate
+infra/terraform.tfstate.backup
+
+# Arquivo da chave privada (caso esteja no repositório — mas o ideal é NUNCA subir!)
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+
+# VSCode configs
+.vscode/
+
+# Outros
+*.log

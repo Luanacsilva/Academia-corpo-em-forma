@@ -22,7 +22,7 @@ jobs:
 
       - name: Deploy via SSH
         run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/academia-key.pem ubuntu@54.88.219.21 << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/academia-key.pem ubuntu@54.235.42.219 << 'EOF'
             sudo apt update -y
             sudo apt install python3 git -y
             rm -rf ~/app

@@ -1,0 +1,1 @@
+print("Deploy automático funcionando 🎉")

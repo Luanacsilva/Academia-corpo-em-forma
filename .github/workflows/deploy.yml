@@ -2,7 +2,7 @@ name: Deploy na EC2
 
 on:
   push:
-    branches::
+    branches:
       - master
 
 jobs:

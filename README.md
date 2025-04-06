@@ -1,92 +1,103 @@
-Projeto: Academia Corpo em Forma 🏋️‍♀️☁️
+# 🏋️‍♀️ Academia Corpo em Forma
 
- 📖 Introdução
-Este projeto faz parte da avaliação prática da disciplina de Cloud Computing. O grupo desenvolveu e implantou uma aplicação simples com o objetivo de simular o funcionamento de uma academia fictícia chamada "Corpo em Forma", utilizando serviços em nuvem (AWS EC2) e integração e entrega contínuas (CI/CD) através do GitHub Actions.
-O modelo de serviço adotado foi o IaaS - Infrastructure as a Service, no qual provisionamos uma instância EC2 com infraestrutura definida como código via Terraform, permitindo a automação de todo o processo de criação do ambiente.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 
- 🔧 Implementação Prática
- 🚀 Tecnologias Utilizadas:
+Este projeto foi desenvolvido como parte de um desafio prático da disciplina de Cloud Computing, com o objetivo de simular o gerenciamento de uma academia real em ambiente de nuvem.
 
-➡️AWS EC2 (Ubuntu 22.04)
-➡️Terraform
-➡️Python 3
-➡️Shell Script
-➡️GitHub Actions
-➡️GitHub Secrets
+A aplicação foi escrita em **Python**, hospedada em uma instância **EC2 da AWS**, com banco de dados relacional provisionado via **RDS**, e **deploy automatizado utilizando GitHub Actions**. Toda a infraestrutura foi provisionada com **Terraform**, seguindo o modelo **IaaS (Infrastructure as a Service)**.
 
+---
 
+## 🚀 Tecnologias Utilizadas
 
-🛠️Pipeline CI/CD (GitHub Actions):
-➡️Faz o checkout do código da branch master.
-➡️Cria o arquivo .pem a partir da variável secreta EC2_PRIVATE_KEY configurada nos Secrets do repositório.
-➡️Conecta-se via SSH à instância EC2 usando o IP público.
-➡️Atualiza os pacotes e instala Python e Git na máquina remota.
-➡️Clona novamente o repositório.
-➡️Executa a aplicação Python (main.py) automaticamente.
+- 🐍 Python 3
+- ☁️ Amazon EC2
+- 🛢️ Amazon RDS (PostgreSQL)
+- 📦 Terraform (IaC)
+- 🔁 GitHub Actions (CI/CD)
+- 🐧 Ubuntu Server
 
+---
 
+## ⚙️ Funcionalidades
 
- 🌐 Infraestrutura como Código (IaC)
-    🌐 A infraestrutura foi criada utilizando o Terraform com os arquivos:
-➡️main.tf: define os recursos da AWS, como a instância EC2.
-➡️variables.tf: declara as variáveis utilizadas no projeto.
-➡️outputs.tf: define os valores de saída como IP público.
-➡️.terraform.lock.hcl: controle de dependências.
-➡️.gitignore: protege arquivos sensíveis como terraform.tfstate.
+- API simples de simulação de uma academia
+- Deploy automatizado ao fazer push no repositório
+- Provisionamento de infraestrutura completo com Terraform
+- Banco de dados gerenciado integrado ao backend
 
+---
 
- 📁 Estrutura do Projeto
+## ☁️ Executando na AWS (EC2)
 
- Academia-corpo-em-forma/
+1. **Acesse sua instância EC2 via SSH:**
 
- 
-├── .github/
+   ```bash
+   ssh -i sua-chave.pem ubuntu@seu-endereco-ec2.amazonaws.com
+   
+   ```
+   A aplicação será iniciada e estará disponível na porta configurada (por padrão, 8000).
+Verifique se a porta está liberada nas regras de segurança da sua instância EC2.
 
+---
 
-│   └── workflows/
+## 🛠️ Infraestrutura com Terraform
 
+A pasta infra/ contém todos os arquivos responsáveis por provisionar os recursos em nuvem:
 
-│       └── deploy.yml          → CI/CD com GitHub Actions
+```
+infra/
+├── main.tf
+├── outputs.tf
+├── variables.tf
+└── terraform.tfstate
+```
+Esses arquivos definem a criação da instância EC2, do banco RDS, regras de segurança, e variáveis necessárias.
 
+---
 
+## 🔁 Integração Contínua (CI/CD)
+
+O projeto utiliza GitHub Actions para automatizar o deploy. Ao realizar um push na branch principal, o workflow definido em:
+
+```bash
+.github/workflows/deploy.yml
+```
+
+irá automaticamente:
+
+Conectar via SSH na EC2
+
+Atualizar o código do projeto
+
+Reiniciar a aplicação com o novo código
+
+---
+
+## 📂 Estrutura do Projeto
+
+ ```bash
+Academia-corpo-em-forma/
 ├── app/
-
-
-│   ├── main.py                 → Código principal em Python
-
-
-│   └── app.sh                  → Shell Script
-
-
+│   ├── main.py
+│   └── app.sh (script de execução opcional)
 ├── infra/
-│   ├── main.tf                 → Infraestrutura com Terraform
-
-
-│   ├── variables.tf
-
-
-│   ├── outputs.tf
-
-
-│   └── terraform.tfstate       → Ignorado no git
-
-
-├── .gitignore
-
-
+│   └── arquivos Terraform
+├── .github/
+│   └── workflows/deploy.yml
 ├── README.md
+└── .gitignore
+```
+---
+
+## ⚖️ Licença
+
+Este projeto está licenciado sob a licença MIT.
 
 
 
-                                                      ✨ ✨ ✨ ✨ ✨  Conclusão ✨ ✨ ✨ ✨ ✨ 
-
-Conclusão
-Este projeto mostra, de forma prática e objetiva, como criar e gerenciar uma aplicação simples em nuvem com automação de deploy.
-
-Com o uso de boas práticas e ferramentas modernas (como Terraform e GitHub Actions), foi possível implantar uma solução eficiente, reutilizável e com foco em agilidade.
 
 
 
-✅ Licença
-Este projeto está licenciado sob a MIT License – veja o arquivo LICENSE para detalhes.
+

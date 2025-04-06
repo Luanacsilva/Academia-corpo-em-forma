@@ -1,6 +1,13 @@
 # 🏋️‍♀️ Academia Corpo em Forma
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![stack: fullstack](https://img.shields.io/badge/stack-fullstack-blue)
+![language: Python](https://img.shields.io/badge/language-Python-3776AB)
+![infra: AWS](https://img.shields.io/badge/infra-AWS-orange)
+![infra: Terraform](https://img.shields.io/badge/infra-Terraform-5c4ee5)
+![ci: GitHub Actions](https://img.shields.io/badge/CI-GitHub%20Actions-blue)
+![status: deploy automático](https://img.shields.io/badge/status-deploy%20automático-brightgreen)
+![license: MIT](https://img.shields.io/badge/license-MIT-green)
+
 
 
 Este projeto foi desenvolvido como parte de um desafio prático da disciplina de Cloud Computing, com o objetivo de simular o gerenciamento de uma academia real em ambiente de nuvem.

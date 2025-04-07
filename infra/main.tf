@@ -18,8 +18,8 @@ resource "aws_db_instance" "academia_rds" {
   engine                  = "postgres"
   instance_class          = "db.t3.micro"
   db_name                 = "academia_db"
-  username                = "luana"
-  password                = "Academia123!"
+  username                = "usuario_aqui"
+  password                = "senha_aqui"
   publicly_accessible     = true
   skip_final_snapshot     = true
 }
